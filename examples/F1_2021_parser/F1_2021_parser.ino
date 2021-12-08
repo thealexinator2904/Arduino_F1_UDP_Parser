@@ -8,7 +8,6 @@ const char *SSID = "Your SSID";
 const char *WiFiPassword = "YOur PW";
 
 void ConnectToWiFi();
-char s[4];
  
 //The IP address that this arduino has requested to be assigned to.
 IPAddress ip();
