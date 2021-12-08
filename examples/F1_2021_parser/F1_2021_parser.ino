@@ -4,8 +4,8 @@
 #include <WiFiUdp.h>
 #include <F_UDP_Parser.h>
 
-const char *SSID = "WLAN15197844";
-const char *WiFiPassword = "W4hvzk8ujwwp";
+const char *SSID = "Your SSID";
+const char *WiFiPassword = "YOur PW";
 
 void ConnectToWiFi();
 char s[4];
