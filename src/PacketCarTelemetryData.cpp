@@ -13,7 +13,6 @@
 
 #include "PacketCarTelemetryData.h"
 #include<string.h>
-#include <cstdio>
 
 PacketCarTelemetryData::PacketCarTelemetryData(char * recieveBuffer)
 : AbstraktPaketClass(recieveBuffer)

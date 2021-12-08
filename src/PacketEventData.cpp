@@ -18,7 +18,6 @@ PacketEventData::PacketEventData(char * recieveBuffer)
 : AbstraktPaketClass(recieveBuffer)
 {
     memmove(AbstraktPaketClass::pointerToFirstElement(), recieveBuffer, 36);
-
 }
 
 PacketEventData::~PacketEventData()

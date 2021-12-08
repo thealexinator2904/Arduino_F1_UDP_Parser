@@ -5,7 +5,6 @@
  * Created on 2. Dezember 2021, 11:01
  */
 
-#include <cstdlib>
 
 #include "F1_UDP_Parser.h"
 #include "PacketMotionData.h"
@@ -20,6 +19,9 @@
 #include "PacketLobbyInfoData.h"
 #include "PacketCarDamageData.h"
 #include "PacketSessionHistoryData.h"
+
+#include <stdio.h>
+#include <stdlib.h>
 
 F1_UDP_Parser::F1_UDP_Parser()
 {

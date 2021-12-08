@@ -15,7 +15,7 @@
 #define PACKETEVENTDATA_H
 
 #include "AbstraktPaketClass.h"
-#include<string>
+#include<string.h>
 // The event details packet is different for each type of event.
 // Make sure only the correct type is interpreted.
 #pragma pack(push, 1)

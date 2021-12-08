@@ -14,7 +14,6 @@
 
 #include "AbstraktPaketClass.h"
 #include <inttypes.h>
-#include <cstdio>
 
 using namespace std;
 
