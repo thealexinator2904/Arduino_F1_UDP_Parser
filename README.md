@@ -1,7 +1,16 @@
 # Arduino_F1_UDP_Parser
 This Programm parses the Datapackets which are sent from the F1 2021 Game
-#Usage:
+## Usage:
+```C
+#include <F1_UDP_Parser>
+F1_UDP_Parser* parser;
 
+void loop()
+{
+  parser = new F1_UDP_Parser();
+  parser->push(*receiveBuffer);
+}
+```
 
 ## Overview
 
