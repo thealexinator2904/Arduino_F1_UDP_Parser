@@ -103,6 +103,7 @@ void F1_UDP_Parser::push(char * recieveBuffer)
             break;
         default:;
     }
+    delete abs;
 }
 
 PacketMotionData* F1_UDP_Parser::packetMotionData(void)
