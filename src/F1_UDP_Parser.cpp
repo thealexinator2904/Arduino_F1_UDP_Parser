@@ -82,8 +82,8 @@ void F1_UDP_Parser::push(char * recieveBuffer)
             break;
         case 10: packetCarDamageData_->push(recieveBuffer);
             break;
-        case 11: packetSessionHistoryData_->push(recieveBuffer);
-            break;
+        //case 11: packetSessionHistoryData_->push(recieveBuffer);
+        //    break;
         default:;
     }
     delete abs;
