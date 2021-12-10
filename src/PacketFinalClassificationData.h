@@ -41,10 +41,12 @@ struct FinalClassificationData
 class PacketFinalClassificationData : public AbstraktPaketClass
 {
 public:
-    PacketFinalClassificationData(char * recieveBuffer);
+    PacketFinalClassificationData();
     virtual ~PacketFinalClassificationData();
     uint8_t m_numCars(void); // Number of cars in the final classification
     FinalClassificationData m_classificationData(int index);
+    void push(char *receiveBuffer);
+
 private:
     uint8_t m_numCars_; // Number of cars in the final classification
     FinalClassificationData m_classificationData_[22];

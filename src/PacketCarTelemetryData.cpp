@@ -14,17 +14,21 @@
 #include "PacketCarTelemetryData.h"
 #include<string.h>
 
-PacketCarTelemetryData::PacketCarTelemetryData(char * recieveBuffer)
-: AbstraktPaketClass(recieveBuffer)
+PacketCarTelemetryData::PacketCarTelemetryData()
+: AbstraktPaketClass()
 {
-    memmove(AbstraktPaketClass::pointerToFirstElement(), recieveBuffer, 1347);
-    //printf("CarTelemetryData: %p\n", &m_carTelemetryData_[0].m_speed); //->m_packetFormat());
 
 }
 
 PacketCarTelemetryData::~PacketCarTelemetryData()
 {
 }
+
+void PacketCarTelemetryData::push(char *receiveBuffer)
+{
+    memmove(AbstraktPaketClass::pointerToFirstElement(), receiveBuffer, 1347);
+}
+
 
 CarTelemetryData PacketCarTelemetryData::m_carTelemetryData(int index)
 {

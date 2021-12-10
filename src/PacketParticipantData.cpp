@@ -15,14 +15,18 @@
 #include<inttypes.h>
 #include<string.h>
 
-PacketParticipantData::PacketParticipantData(char * recieveBuffer)
-: AbstraktPaketClass(recieveBuffer)
+PacketParticipantData::PacketParticipantData()
+: AbstraktPaketClass()
 {
-    memmove(AbstraktPaketClass::pointerToFirstElement(), recieveBuffer, 1257);
 }
 
 PacketParticipantData::~PacketParticipantData()
 {
+}
+
+void PacketParticipantData::push(char *receiveBuffer)
+{
+    memmove(AbstraktPaketClass::pointerToFirstElement(), receiveBuffer, 1257);
 }
 
 uint8_t PacketParticipantData::m_numActiveCars(void)

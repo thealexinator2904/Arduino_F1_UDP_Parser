@@ -33,11 +33,13 @@ struct LobbyInfoData
 class PacketLobbyInfoData : public AbstraktPaketClass
 {
 public:
-    PacketLobbyInfoData(char * recieveBuffer);
+    PacketLobbyInfoData();
     virtual ~PacketLobbyInfoData();
     // Packet specific data
     uint8_t m_numPlayers(void); // Number of players in the lobby data
     LobbyInfoData m_lobbyPlayers(int index);
+    void push(char *receiveBuffer);
+
 private:
     // Packet specific data
     uint8_t m_numPlayers_; // Number of players in the lobby data

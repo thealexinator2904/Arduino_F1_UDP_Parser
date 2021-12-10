@@ -38,7 +38,7 @@ using namespace std;
 class AbstraktPaketClass
 {
 public:
-    AbstraktPaketClass(char* recieveBuffer);
+    AbstraktPaketClass();
     virtual ~AbstraktPaketClass();
     uint16_t m_packetFormat(void); // 2021
     uint8_t m_gameMajorVersion(void); // Game major version - "X.00"
@@ -50,9 +50,10 @@ public:
     uint32_t m_frameIdentifier(void); // Identifier for the frame the data was retrieved on
     uint8_t m_playerCarIndex(void); // Index of player's car in the array
     uint8_t m_secondaryPlayerCarIndex(void);
+    void push(char *receiveBuffer);
+
 protected:
     PacketHeader m_header;
-public:
     uint16_t* pointerToFirstElement();
 };
 

@@ -5,6 +5,7 @@
  * Created on 2. Dezember 2021, 11:01
  */
 
+#include <stdio.h>
 
 #include "F1_UDP_Parser.h"
 #include "PacketMotionData.h"
@@ -20,27 +21,20 @@
 #include "PacketCarDamageData.h"
 #include "PacketSessionHistoryData.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-
 F1_UDP_Parser::F1_UDP_Parser()
 {
-    char * exampleBuffer;
-    exampleBuffer = (char *) malloc(1500);
-    
-    packetMotionData_ = new PacketMotionData(exampleBuffer);
-    packetSessionData_ = new PacketSessionData(exampleBuffer);
-    lapDataPacket_ = new LapDataPacket(exampleBuffer);
-    packetEventData_ = new PacketEventData(exampleBuffer);
-    packetParticipantData_ = new PacketParticipantData(exampleBuffer);
-    packetCarSetupData_ = new PacketCarSetupData(exampleBuffer);
-    packetCarTelemetryData_ = new PacketCarTelemetryData(exampleBuffer);
-    packetCarStatusData_ = new PacketCarStatusData(exampleBuffer);
-    packetFinalClassificationData_ = new PacketFinalClassificationData(exampleBuffer);
-    packetLobbyInfoData_ = new PacketLobbyInfoData(exampleBuffer);
-    packetCarDamageData_ = new PacketCarDamageData(exampleBuffer);
-    packetSessionData_ = new PacketSessionData(exampleBuffer);
-    free(exampleBuffer);
+    packetMotionData_ = new PacketMotionData();
+    packetSessionData_ = new PacketSessionData();
+    lapDataPacket_ = new LapDataPacket();
+    packetEventData_ = new PacketEventData();
+    packetParticipantData_ = new PacketParticipantData();
+    packetCarSetupData_ = new PacketCarSetupData();
+    packetCarTelemetryData_ = new PacketCarTelemetryData();
+    packetCarStatusData_ = new PacketCarStatusData();
+    packetFinalClassificationData_ = new PacketFinalClassificationData();
+    packetLobbyInfoData_ = new PacketLobbyInfoData();
+    packetCarDamageData_ = new PacketCarDamageData();
+    packetSessionData_ = new PacketSessionData();
 }
 
 F1_UDP_Parser::~F1_UDP_Parser()
@@ -62,44 +56,33 @@ F1_UDP_Parser::~F1_UDP_Parser()
 
 void F1_UDP_Parser::push(char * recieveBuffer)
 {
-    AbstraktPaketClass* abs = new AbstraktPaketClass(recieveBuffer);
+    AbstraktPaketClass* abs = new AbstraktPaketClass();
+    abs->push(recieveBuffer);
     switch (abs->m_packetId())
     {
-        case 0: delete packetMotionData_;
-            packetMotionData_ = new PacketMotionData(recieveBuffer);
+        case 0: packetMotionData_->push(recieveBuffer);
             break;
-        case 1: delete packetSessionData_;
-            packetSessionData_ = new PacketSessionData(recieveBuffer);
+        case 1: packetSessionData_->push(recieveBuffer);
             break;
-        case 2: delete lapDataPacket_;
-            lapDataPacket_ = new LapDataPacket(recieveBuffer);
+        case 2: lapDataPacket_->push(recieveBuffer);
             break;
-        case 3: delete packetEventData_;
-            packetEventData_ = new PacketEventData(recieveBuffer);
+        case 3: packetEventData_->push(recieveBuffer);
             break;
-        case 4: delete packetParticipantData_;
-            packetParticipantData_ = new PacketParticipantData(recieveBuffer);
+        case 4: packetParticipantData_->push(recieveBuffer);
             break;
-        case 5: delete packetCarSetupData_;
-            packetCarSetupData_ = new PacketCarSetupData(recieveBuffer);
+        case 5: packetCarSetupData_->push(recieveBuffer);
             break;
-        case 6: delete packetCarTelemetryData_;
-            packetCarTelemetryData_ = new PacketCarTelemetryData(recieveBuffer);
+        case 6: packetCarTelemetryData_->push(recieveBuffer);
             break;
-        case 7: delete packetCarStatusData_;
-            packetCarStatusData_ = new PacketCarStatusData(recieveBuffer);
+        case 7: packetCarStatusData_->push(recieveBuffer);
             break;
-        case 8: delete packetFinalClassificationData_;
-            packetFinalClassificationData_ = new PacketFinalClassificationData(recieveBuffer);
+        case 8: packetFinalClassificationData_->push(recieveBuffer);
             break;
-        case 9: delete packetLobbyInfoData_;
-            packetLobbyInfoData_ = new PacketLobbyInfoData(recieveBuffer);
+        case 9: packetLobbyInfoData_->push(recieveBuffer);
             break;
-        case 10: delete packetCarDamageData_;
-            packetCarDamageData_ = new PacketCarDamageData(recieveBuffer);
+        case 10: packetCarDamageData_->push(recieveBuffer);
             break;
-        case 11: delete packetSessionHistoryData_;
-            packetSessionHistoryData_ = new PacketSessionHistoryData(recieveBuffer);
+        case 11: packetSessionHistoryData_->push(recieveBuffer);
             break;
         default:;
     }

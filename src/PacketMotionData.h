@@ -43,7 +43,7 @@ struct CarMotionData
 class PacketMotionData : public AbstraktPaketClass
 {
 public:
-    PacketMotionData(char* recieveBuffer);
+    PacketMotionData();
     virtual ~PacketMotionData();
     // Extra player car ONLY data
     CarMotionData m_carMotionData(int index);
@@ -62,6 +62,8 @@ public:
     float m_angularAccelerationY(void); // Angular velocity y-component
     float m_angularAccelerationZ(void); // Angular velocity z-component
     float m_frontWheelsAngle(void);
+    void push(char *receiveBuffer);
+
 private:
     CarMotionData m_carMotionData_[22]; //22 elements
     // Extra player car ONLY data

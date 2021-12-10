@@ -43,7 +43,7 @@ struct WeatherForecastSample
 class PacketSessionData : public AbstraktPaketClass
 {
 public:
-    PacketSessionData(char* recieveBuffer);
+    PacketSessionData();
     virtual ~PacketSessionData();
     uint8_t m_weather(void); // Weather - 0 = clear, 1 = light cloud, 2 = overcast
     // 3 = light rain, 4 = heavy rain, 5 = storm
@@ -88,6 +88,8 @@ public:
     uint8_t m_DRSAssist(void); // 0 = off, 1 = on
     uint8_t m_dynamicRacingLine(void); // 0 = off, 1 = corners only, 2 = full
     uint8_t m_dynamicRacingLineType(void); // 0 = 2D, 1 = 3D
+    void push(char *receiveBuffer);
+
 private:
     uint8_t m_weather_; // Weather - 0 = clear, 1 = light cloud, 2 = overcast
     // 3 = light rain, 4 = heavy rain, 5 = storm

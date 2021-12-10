@@ -13,8 +13,8 @@
 
 #include "PacketCarDamageData.h"
 
-PacketCarDamageData::PacketCarDamageData(char * recieveBuffer)
-: AbstraktPaketClass(recieveBuffer)
+PacketCarDamageData::PacketCarDamageData()
+: AbstraktPaketClass()
 {
 }
 
@@ -22,3 +22,8 @@ PacketCarDamageData::~PacketCarDamageData()
 {
 }
 
+void PacketCarDamageData::push(char *receiveBuffer)
+{
+    AbstraktPaketClass::push(receiveBuffer);
+    //memmove(AbstraktPaketClass::pointerToFirstElement(), receiveBuffer, 1);
+}

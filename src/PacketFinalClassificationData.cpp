@@ -15,15 +15,19 @@
 #include<inttypes.h>
 #include<string.h>
 
-PacketFinalClassificationData::PacketFinalClassificationData(char * recieveBuffer)
-: AbstraktPaketClass(recieveBuffer)
+PacketFinalClassificationData::PacketFinalClassificationData()
+: AbstraktPaketClass()
 {
-    memmove(AbstraktPaketClass::pointerToFirstElement(), recieveBuffer, 839);
-
+    //memmove(AbstraktPaketClass::pointerToFirstElement(), recieveBuffer, 839);
 }
 
 PacketFinalClassificationData::~PacketFinalClassificationData()
 {
+}
+
+void PacketFinalClassificationData::push(char *receiveBuffer)
+{
+    memmove(AbstraktPaketClass::pointerToFirstElement(), receiveBuffer, 839);
 }
 
 uint8_t m_numCars(void)

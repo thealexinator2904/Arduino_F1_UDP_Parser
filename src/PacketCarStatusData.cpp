@@ -14,15 +14,19 @@
 #include "PacketCarStatusData.h"
 #include<string.h>
 
-PacketCarStatusData::PacketCarStatusData(char * recieveBuffer)
-: AbstraktPaketClass(recieveBuffer)
+PacketCarStatusData::PacketCarStatusData()
+: AbstraktPaketClass()
 {
-    memmove(AbstraktPaketClass::pointerToFirstElement(), recieveBuffer, 1058);
 
 }
 
 PacketCarStatusData::~PacketCarStatusData()
 {
+}
+
+void PacketCarStatusData::push(char *receiveBuffer)
+{
+    memmove(AbstraktPaketClass::pointerToFirstElement(), receiveBuffer, 1058);
 }
 
 CarStatusData PacketCarStatusData::m_carStatusData(int index)

@@ -15,7 +15,7 @@
 #define PACKETEVENTDATA_H
 
 #include "AbstraktPaketClass.h"
-#include<string.h>
+#include<string>
 // The event details packet is different for each type of event.
 // Make sure only the correct type is interpreted.
 #pragma pack(push, 1)
@@ -94,10 +94,12 @@ union EventDataDetails
 class PacketEventData : public AbstraktPaketClass
 {
 public:
-    PacketEventData(char * recieveBuffer);
+    PacketEventData();
     virtual ~PacketEventData();
     uint8_t* m_eventStringCode(void);
     EventDataDetails m_eventDetails(void);
+    void push(char *receiveBuffer);
+
 private:
     uint8_t m_eventStringCode_[4]; // Event string code, see below
     EventDataDetails m_eventDetails_; // Event details - should be interpreted differently for each type

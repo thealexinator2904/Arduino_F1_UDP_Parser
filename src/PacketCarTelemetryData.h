@@ -41,7 +41,7 @@ struct CarTelemetryData
 class PacketCarTelemetryData : public AbstraktPaketClass
 {
 public:
-    PacketCarTelemetryData(char * recieveBuffer);
+    PacketCarTelemetryData();
     virtual ~PacketCarTelemetryData();
     CarTelemetryData m_carTelemetryData(int index);
 
@@ -52,6 +52,8 @@ public:
     uint8_t m_mfdPanelIndexSecondaryPlayer(void); // See above
     int8_t m_suggestedGear(void); // Suggested gear for the player (1-8)
     // 0 if no gear suggested
+    void push(char *receiveBuffer);
+
 private:
     CarTelemetryData m_carTelemetryData_[22];
     uint8_t m_mfdPanelIndex_; // Index of MFD panel open - 255 = MFD closed

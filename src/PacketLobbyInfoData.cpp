@@ -13,8 +13,8 @@
 
 #include "PacketLobbyInfoData.h"
 
-PacketLobbyInfoData::PacketLobbyInfoData(char * recieveBuffer)
-: AbstraktPaketClass(recieveBuffer)
+PacketLobbyInfoData::PacketLobbyInfoData()
+: AbstraktPaketClass()
 {
 }
 
@@ -22,3 +22,8 @@ PacketLobbyInfoData::~PacketLobbyInfoData()
 {
 }
 
+void PacketLobbyInfoData::push(char *receiveBuffer)
+{
+    AbstraktPaketClass::push(receiveBuffer);
+    //memmove(AbstraktPaketClass::pointerToFirstElement(), receiveBuffer, 1);
+}

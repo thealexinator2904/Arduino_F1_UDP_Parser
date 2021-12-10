@@ -15,14 +15,18 @@
 #include "PacketSessionData.h"
 #include<string.h>
 
-PacketSessionData::PacketSessionData(char* recieveBuffer)
-: AbstraktPaketClass(recieveBuffer)
+PacketSessionData::PacketSessionData()
+: AbstraktPaketClass()
 {
-    memmove(AbstraktPaketClass::pointerToFirstElement(), recieveBuffer, 625);
 }
 
 PacketSessionData::~PacketSessionData(void)
 {
+}
+
+void PacketSessionData::push(char *receiveBuffer)
+{
+    memmove(AbstraktPaketClass::pointerToFirstElement(), receiveBuffer, 625);
 }
 
 uint8_t PacketSessionData::m_DRSAssist(void)

@@ -48,10 +48,12 @@ struct CarSetupData
 class PacketCarSetupData : public AbstraktPaketClass
 {
 public:
-    PacketCarSetupData(char * recieveBuffer);
+    PacketCarSetupData();
     virtual ~PacketCarSetupData();
-     CarSetupData m_carSetups(int index);
-   
+    CarSetupData m_carSetups(int index);
+    void push(char *receiveBuffer);
+
+
 private:
     CarSetupData m_carSetups_[22];
 };

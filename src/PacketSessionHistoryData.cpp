@@ -13,8 +13,8 @@
 
 #include "PacketSessionHistoryData.h"
 
-PacketSessionHistoryData::PacketSessionHistoryData(char * recieveBuffer)
-: AbstraktPaketClass(recieveBuffer)
+PacketSessionHistoryData::PacketSessionHistoryData()
+: AbstraktPaketClass()
 {
 }
 
@@ -22,3 +22,8 @@ PacketSessionHistoryData::~PacketSessionHistoryData()
 {
 }
 
+void PacketSessionHistoryData::push(char *receiveBuffer)
+{
+    AbstraktPaketClass::push(receiveBuffer);
+    //memmove(AbstraktPaketClass::pointerToFirstElement(), receiveBuffer, 1);
+}

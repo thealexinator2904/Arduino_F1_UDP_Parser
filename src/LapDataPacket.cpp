@@ -14,14 +14,18 @@
 #include "LapDataPacket.h"
 #include<string.h>
 
-LapDataPacket::LapDataPacket(char* recieveBuffer)
-: AbstraktPaketClass(recieveBuffer)
+LapDataPacket::LapDataPacket()
+: AbstraktPaketClass()
 {
-    memmove(AbstraktPaketClass::pointerToFirstElement(), recieveBuffer, 970);
 }
 
 LapDataPacket::~LapDataPacket()
 {
+}
+
+void LapDataPacket::push(char *receiveBuffer)
+{
+    memmove(AbstraktPaketClass::pointerToFirstElement(), receiveBuffer, 970);
 }
 
 LapData LapDataPacket::m_lapData(char index)

@@ -14,14 +14,18 @@
 #include "PacketMotionData.h"
 #include<string.h>
 
-PacketMotionData::PacketMotionData(char* recieveBuffer)
-: AbstraktPaketClass(recieveBuffer)
+PacketMotionData::PacketMotionData()
+: AbstraktPaketClass()
 {
-    memmove(AbstraktPaketClass::pointerToFirstElement(), recieveBuffer, 1464);
 }
 
 PacketMotionData::~PacketMotionData()
 {
+}
+
+void PacketMotionData::push(char *receiveBuffer)
+{
+    memmove(AbstraktPaketClass::pointerToFirstElement(), receiveBuffer, 1464);
 }
 
 CarMotionData PacketMotionData::m_carMotionData(int index)

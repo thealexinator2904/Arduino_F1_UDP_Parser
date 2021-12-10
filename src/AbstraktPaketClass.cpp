@@ -14,23 +14,29 @@
 
 #include "AbstraktPaketClass.h"
 #include <inttypes.h>
+#include <cstdio>
 
 using namespace std;
 
-AbstraktPaketClass::AbstraktPaketClass(char* recieveBuffer)
+AbstraktPaketClass::AbstraktPaketClass()
 {
-    memmove(&m_header, recieveBuffer, 24);
-/*  printf("m_packetFormat_ %p\n", &m_header.m_packetFormat); //->m_packetFormat());
-    printf("m_gameMajorVersion: %p\n", &m_header.m_gameMajorVersion); //->m_packetFormat());
-    printf("m_gameMinorVersion: %p\n", &m_header.m_gameMinorVersion); //->m_packetFormat());
-    printf("m_packetVersion: %p\n", &m_header.m_packetVersion); //->m_packetFormat());
-    printf("m_packetId: %p\n", &m_header.m_packetId); //->m_packetFormat());
-    printf("m_sessionUID: %p\n", &m_header.m_sessionUID); //->m_packetFormat());
-    printf("m_secondaryPlayerCarIndex: %p\n", &m_header.m_secondaryPlayerCarIndex); //->m_packetFormat());*/
+    /*  printf("m_packetFormat_ %p\n", &m_header.m_packetFormat); //->m_packetFormat());
+        printf("m_gameMajorVersion: %p\n", &m_header.m_gameMajorVersion); //->m_packetFormat());
+        printf("m_gameMinorVersion: %p\n", &m_header.m_gameMinorVersion); //->m_packetFormat());
+        printf("m_packetVersion: %p\n", &m_header.m_packetVersion); //->m_packetFormat());
+        printf("m_packetId: %p\n", &m_header.m_packetId); //->m_packetFormat());
+        printf("m_sessionUID: %p\n", &m_header.m_sessionUID); //->m_packetFormat());
+        printf("m_secondaryPlayerCarIndex: %p\n", &m_header.m_secondaryPlayerCarIndex); //->m_packetFormat());*/
 }
 
 AbstraktPaketClass::~AbstraktPaketClass()
 {
+}
+
+void AbstraktPaketClass::push(char *receiveBuffer)
+{
+    memmove(&m_header, receiveBuffer, 24);
+
 }
 
 uint16_t AbstraktPaketClass::m_packetFormat(void)

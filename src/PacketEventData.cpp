@@ -14,14 +14,19 @@
 #include "PacketEventData.h"
 #include<string.h>
 
-PacketEventData::PacketEventData(char * recieveBuffer)
-: AbstraktPaketClass(recieveBuffer)
+PacketEventData::PacketEventData()
+: AbstraktPaketClass()
 {
-    memmove(AbstraktPaketClass::pointerToFirstElement(), recieveBuffer, 36);
+
 }
 
 PacketEventData::~PacketEventData()
 {
+}
+
+void PacketEventData::push(char *receiveBuffer)
+{
+    memmove(AbstraktPaketClass::pointerToFirstElement(), receiveBuffer, 36);
 }
 
 uint8_t* PacketEventData::m_eventStringCode(void)
