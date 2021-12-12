@@ -1,5 +1,5 @@
 # Arduino_F1_UDP_Parser
-This Programm parses the Datapackets which are sent from the F1 2021 Game and is specially written for usage on the ESP32 and the ESP8266 with the Arduino Toolchain. However it is also tested for usage on x86 and x64 machines. Why ever somebody would use that.
+This Programm parses the Datapackets which are sent from the F1 2021 Game and is specially written for usage on the ESP32 and the ESP8266 with the Arduino Toolchain. However it is also tested for usage on x86 and x64 machines. But why would anyone ever use that? 
 ## Usage:
 ```C
 #include <F1_UDP_Parser>
