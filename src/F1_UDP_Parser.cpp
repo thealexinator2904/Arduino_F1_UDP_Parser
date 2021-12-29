@@ -60,7 +60,7 @@ void F1_UDP_Parser::push(char * recieveBuffer)
     abs->push(recieveBuffer);
     switch (abs->m_packetId())
     {
-        case 0: packetMotionData_->push(recieveBuffer);
+        /*case 0: packetMotionData_->push(recieveBuffer);
             break;
         case 1: packetSessionData_->push(recieveBuffer);
             break;
@@ -71,17 +71,17 @@ void F1_UDP_Parser::push(char * recieveBuffer)
         case 4: packetParticipantData_->push(recieveBuffer);
             break;
         case 5: packetCarSetupData_->push(recieveBuffer);
-            break;
+            break;*/
         case 6: packetCarTelemetryData_->push(recieveBuffer);
             break;
-        case 7: packetCarStatusData_->push(recieveBuffer);
+        /*case 7: packetCarStatusData_->push(recieveBuffer);
             break;
         case 8: packetFinalClassificationData_->push(recieveBuffer);
             break;
         case 9: packetLobbyInfoData_->push(recieveBuffer);
             break;
         case 10: packetCarDamageData_->push(recieveBuffer);
-            break;
+            break;*/
         //case 11: packetSessionHistoryData_->push(recieveBuffer);
         //    break;
         default:;
